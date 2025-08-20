@@ -10,7 +10,10 @@
     "postinstall": "npx prisma generate --no-engine"
   },
   "dependencies": {
+    "@prisma/client": "6.12.0",
     "@prisma/extension-accelerate": "^1.2.1",
+    "motion": "^12.23.9",
+    "motion-plus": "^1.5.1",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
