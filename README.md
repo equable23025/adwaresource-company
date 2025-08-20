@@ -1,27 +1,62 @@
-# Next.js & Prisma Postgres starter
+# AdwareSource Company Website
 
-This repository provides a boilerplate to quickly set up a Next.js demo application with [Prisma Postgres](https://www.prisma.io/postgres) and [Prisma ORM](https://www.prisma.io/orm), and deploy it to Netlify. It includes an easy setup process and example routes that demonstrate basic CRUD operations against the database.
+เว็บไซต์บริษัท AdwareSource ที่สร้างด้วย Next.js 15, React 19, และ Prisma
 
-For the deployment on Netlify, you can use the [Prisma Postgres extension](https://www.netlify.com/integrations/prisma) for Netlify.
+## การตั้งค่าสำหรับ Netlify Deployment
 
-![](./nextjs-ppg-template.png)
+### ข้อกำหนด
+- Node.js 20+
+- npm (ไม่ใช้ yarn)
+- Prisma PostgreSQL database
 
-## Features
+### Environment Variables ที่ต้องการ
+สร้างไฟล์ `.env` ในโฟลเดอร์ root:
 
-- Next.js 15 app with App Router, Server Actions & API Routes
-- Data modeling, database migrations, seeding & querying
-- CRUD operations to create, view and delete blog posts
-- Pagination, filtering & relations queries
+```env
+DATABASE_URL="your_postgresql_database_url"
+```
 
-If you want to go further, check out our [Next.js app with Authentication](https://github.com/prisma/nextjs-prisma-postgres-demo) example.
+### การติดตั้ง Dependencies
+```bash
+npm install
+```
 
-## Getting started
+### การ Build
+```bash
+npm run build
+```
 
-Follow the steps in [USAGE.md](./USAGE.md) to set up this starter template, connect it with Prisma Postgres and deploy to Netlify.
+### การรัน Development Server
+```bash
+npm run dev
+```
 
-## Next steps
+## การแก้ไขปัญหา Netlify Build
 
-- [Prisma ORM documentation](https://www.prisma.io/docs/orm)
-- [Prisma Client API reference](https://www.prisma.io/docs/orm/prisma-client)
-- [Join our Discord community](https://discord.com/invite/prisma)
-- [Follow us on Twitter](https://twitter.com/prisma)
+หากพบปัญหา "Failed during stage 'Install dependencies'" ให้ตรวจสอบ:
+
+1. **Node.js Version**: ใช้ Node.js 20+ (ระบุใน `.nvmrc` และ `netlify.toml`)
+2. **Package Manager**: ใช้ npm แทน yarn (ลบ `yarn.lock` ออก)
+3. **Prisma Version**: ตรวจสอบให้แน่ใจว่า `prisma` และ `@prisma/client` มี version เดียวกัน
+4. **Build Script**: ปรับปรุงแล้วให้รัน `prisma generate` ก่อน build
+
+## โครงสร้างโปรเจค
+
+```
+adwaresource-company/
+├── app/                    # Next.js App Router
+├── prisma/                 # Prisma schema และ migrations
+├── lib/                    # Utility functions
+├── netlify.toml           # Netlify configuration
+├── .nvmrc                 # Node.js version
+├── .npmrc                 # npm configuration
+└── package.json           # Dependencies และ scripts
+```
+
+## การ Deploy บน Netlify
+
+1. เชื่อมต่อ repository กับ Netlify
+2. ตั้งค่า build command: `npm run build`
+3. ตั้งค่า publish directory: `.next`
+4. เพิ่ม environment variable `DATABASE_URL`
+5. Deploy!
