@@ -133,7 +133,7 @@ export default function ServicePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-white text-[#512E8C] px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-[#D5C9F4] transition-all duration-300 font-semibold text-base md:text-lg"
+            className="bg-white text-[#512E8C] px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-white transition-all duration-300 font-semibold text-base md:text-lg"
           >
             ติดต่อเรา
           </motion.button>

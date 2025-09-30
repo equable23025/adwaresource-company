@@ -7,6 +7,10 @@ import SplitText from "./components/SplitText";
 import ScrollLinked from "./components/ScrollLinked";
 import ScrollLinkedService from "./components/ScrollLinkedService";
 import Footer from "./Footer";
+import Image from "next/image";
+import ImgTopLeft from "@/images/img-top-left.svg";
+import ImgTopRight from "@/images/img-top-right.svg";
+import ImgTopBanner from "@/images/img-top-banner.svg";
 
 export default async function Home() {
   if (
@@ -32,15 +36,59 @@ export default async function Home() {
   });
 
   return (
-    <div className="h-screen bg-gradient-to-br from-[#D5C9F4] to-white">
+    <div className="h-fit bg-white">
+      <div className="relative h-[1050px]  md:h-screen ">
+        <div className="absolute z-0 top-0 left-0">
+          <Image
+            src={ImgTopLeft}
+            alt="Adwaresource Consulting"
+            width={434}
+            height={489}
+          />
+        </div>
+        <div className="absolute z-0 top-0 right-0">
+          <Image
+            src={ImgTopRight}
+            alt="Adwaresource Consulting"
+            width={527}
+            height={803}
+          />
+        </div>
+        <div className="absolute z-10 top-[20%] md:top-[40%] left-[3%] md:left-[10%]">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="grid grid-rows-3 gap-4">
+              <div className="font-prompt-medium text-[#222222]">
+                ให้เรื่อง <span className="text-[#512E8C]">บัญชี ภาษี</span> เป็นเรื่องง่าย หมดกังวล ในทุกขั้นตอน
+              </div>
+              <div className="text-xl text-[#444444]">
+                ภาษีอาจดูเป็นภาระ แต่แท้จริงคือโอกาส
+                เราพร้อมช่วยคุณใช้ทุกตัวเลขให้คุ้มค่า สร้างกำไร
+                และก้าวสู่การเติบโตที่มั่นคง
+              </div>
+                <div className="flex gap-4">
+                  <button className="bg-[#512E8C] h-[54px] px-4 py-2 text-white rounded-full hover:bg-[#7F4FC3] transition-colors shadow-lg hover:shadow-xl">
+                    ปรึกษาฟรี
+                  </button>
+                  <button className="bg-white border-[#512E8C] border-[1px] text-[#512E8C] h-[54px] px-4 py-2 rounded-full hover:bg-[#512E8C] hover:text-white transition-colors shadow-lg hover:shadow-xl">
+                    ดูบริการของเรา
+                  </button>
+                </div>
+            </div>
+
+            <div>
+              <Image src={ImgTopBanner} alt="Adwaresource Consulting" width={500} height={500} />
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Hero Section */}
 
-      <ScrollLinked />
+      {/* <ScrollLinked />
 
-      <ScrollLinkedService />
+      <ScrollLinkedService /> */}
 
       {/* About Section */}
-      <section className="py-20 bg-[#D5C9F4]">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -52,9 +100,7 @@ export default async function Home() {
                 ให้บริการลูกค้าทั่วประเทศ
                 ด้วยทีมงานที่มีความเชี่ยวชาญและเทคโนโลยีที่ทันสมัย
               </p>
-              <div className="text-center text-gray-700">
-                
-              </div>
+              <div className="text-center text-gray-700"></div>
 
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
@@ -252,7 +298,7 @@ export default async function Home() {
           </button>
         </div>
       </section>
-      <section className="py-20 bg-white">พันธมิตร</section>
+      {/* <section className="py-20 bg-white">พันธมิตร</section> */}
 
       <Footer />
     </div>

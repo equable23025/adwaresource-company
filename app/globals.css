@@ -21,3 +21,14 @@ body {
   background: var(--background);
   font-family: 'Noto Sans Thai', sans-serif;
 }
+
+/* Custom font styles for Prompt */
+.font-prompt-medium {
+  font-family: 'Prompt', sans-serif;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 63.98px;
+  letter-spacing: 0%;
+  font-variant-numeric: lining-nums proportional-nums;
+  leading-trim: cap-height;
+}

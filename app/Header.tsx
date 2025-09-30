@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Logo from "./components/images/2568-08-20 16.45.43.jpg";
+import Logo from "@/images/2568-08-20 16.45.43.jpg";
 
 export default function Header() {
   const [dbConfigured, setDbConfigured] = useState(true);
@@ -21,13 +21,13 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white shadow-md py-4 px-4 md:px-8 transition-all duration-300">
-      <nav className="flex justify-between items-center">
+    <header className="fixed top-0 left-0 z-50 w-full py-4 px-4 md:px-8 transition-all duration-300">
+      <nav className="flex justify-between shadow-md items-center rounded-full bg-white p-4">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-[#512E8C] hover:text-[#7F4FC3] transition-colors duration-300">
-          <Image src={Logo} alt="Adwaresource Consulting" width={120} height={90} priority className="w-20 md:w-32" />
+        <Link href="/" className=" px-4 text-2xl font-bold text-[#512E8C] hover:text-[#7F4FC3] transition-colors duration-300">
+          <Image src={Logo} alt="Adwaresource Consulting" width={90} height={30} priority className="w-18 md:w-20" />
         </Link>
-        
+
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <Link href="/about" className="text-[#222222] hover:text-[#7F4FC3] transition-colors duration-300 font-medium">
@@ -42,6 +42,12 @@ export default function Header() {
           <Link href="/contact" className="text-[#222222] hover:text-[#7F4FC3] transition-colors duration-300 font-medium">
             ติดต่อเรา
           </Link>
+        </div>
+
+        <div className="hidden md:flex items-center space-x-4"> 
+          <button className="bg-[#512E8C] text-white rounded-full px-4 py-2  hover:bg-[#7F4FC3] transition-colors duration-300 font-medium">
+            ปรึกษาฟรี
+          </button>
         </div>
        
         {/* Desktop Admin Navigation */}
@@ -92,7 +98,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden mt-4 pb-4 border-t border-gray-200 transition-all duration-300">
+        <div className="md:hidden z-50 pb-4 border-t rounded-2xl shadow-lg border-gray-200 transition-all duration-300 bg-white">
           <div className="flex flex-col space-y-4 pt-4">
             <Link 
               href="/about" 

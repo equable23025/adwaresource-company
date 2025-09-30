@@ -28,7 +28,7 @@ export default function ScrollLinked() {
               <SplitText text="ให้คำปรึกษาด้านบัญชีและการเงิน เพื่อธุรกิจที่เติบโตอย่างยั่งยืน" />
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-[#512E8C] px-8 py-3 rounded-lg font-semibold hover:bg-[#D5C9F4] transition-colors">
+              <button className="bg-white text-[#512E8C] px-8 py-3 rounded-lg font-semibold hover:bg-white transition-colors">
                 ปรึกษาฟรี
               </button>
               <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#512E8C] transition-colors">

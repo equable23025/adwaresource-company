@@ -105,7 +105,7 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-[#D5C9F4]">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[#222222] text-center mb-12">สถิติของเรา</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
