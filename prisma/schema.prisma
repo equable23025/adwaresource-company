@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model AdminUser {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  password  String
+  role      String // MAKER, CHECKER, APPROVER, SUPER_ADMIN
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Lead {
+  id           String    @id @default(uuid())
+  fullName     String
+  contactInfo  String
+  businessName String?
+  service      String
+  details      String?
+  status       String    @default("NEW")
+
+  makerNote      String?
+  makerNoteBy    String?
+  makerNoteAt    DateTime?
+
+  checkerNote      String?
+  checkerNoteBy    String?
+  checkerNoteAt    DateTime?
+
+  checkerSummary   String?
+  checkerSummaryBy String?
+  checkerSummaryAt DateTime?
+
+  closedBy String?
+  closedAt DateTime?
+
+  workflowComments LeadWorkflowComment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model LeadWorkflowComment {
+  id            String   @id @default(uuid())
+  leadId        String
+  lead          Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  action        String
+  decision      String?
+  comment       String
+  visibility    String   // PUBLIC, PRIVATE
+  createdBy     String
+  createdByRole String
+  createdAt     DateTime @default(now())
+
+  @@index([leadId])
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  userId     String?
+  userEmail  String
+  userRole   String
+  action     String
+  entityType String?
+  entityId   String?
+  metadata   String?
+  ipAddress  String?
+  createdAt  DateTime @default(now())
+}
